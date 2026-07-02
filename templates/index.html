@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | RoadRecord{% endblock %}
+
+{% block extra_css %}
+    {# Specifieke stylesheet voor de homepage #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="car-section">
+        <div class="video-background">
+            <video autoplay loop muted playsinline>
+                <source src="{{ url_for('static', filename='video/videoplayback.mp4') }}" type="video/mp4">
+                Je browser ondersteunt de video tag niet.
+            </video>
+        </div>
+
+        <div class="car-content">
+            <div class="text-box">
+                <h2>Jouw plek voor auto's</h2>
+            </div>
+        </div>
+
+        <div class="read-more">
+            <p>Lees meer</p>
+            <div class="arrow">&#x25BC;</div>
+        </div>
+    </div>
+
+    <section class="about-section content-section">
+        <div class="container">
+            <h3>Ontdek de Wereld van Auto Spotten</h3>
+            <p>Welkom bij RoadRecord, dé online community voor autoliefhebbers en spotters. Hier deel je de meest indrukwekkende vondsten op vier wielen en duik je in een galerij vol met unieke en zeldzame voertuigen. Of je nu een doorgewinterde spotter bent of net begint, RoadRecord is jouw plek om de passie voor auto's te beleven en te delen.</p>
+            <p>Onze missie is simpel: een platform creëren waar de schoonheid en kracht van uitzonderlijke auto's worden gevierd. Van klassieke muscle cars tot de nieuwste hypercars, elk gespot exemplaar krijgt zijn moment in de spotlights.</p>
+        </div>
+    </section> {# Sluit de sectie hier af #}
+
+    <section class="features-section content-section"> {# Nieuwe sectie voor "Wat Biedt RoadRecord?" #}
+        <div class="container">
+            <h3>Wat Biedt RoadRecord?</h3>
+            <div class="feature-slider">
+                <button class="prev">&#10094;</button>
+                <div class="feature-items-wrapper">
+                    <div class="feature-item">
+                        <h4>De Homepagina</h4>
+                        <p>Je startpunt voor alles wat met auto's te maken heeft. Hier vind je een dynamische introductie en de laatste updates van onze community.</p>
+                        <a href="/" class="learn-more-btn">Naar pagina</a>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Spots: De Galerij</h4>
+                        <p>Duik in onze uitgebreide collectie van gespotte auto's. Bewonder de details, de locaties en de unieke verhalen achter elke foto.</p>
+                        <a href="/spots" class="learn-more-btn">Naar pagina</a>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Voeg Toe: Deel Jouw Vangst</h4>
+                        <p>Heb je zelf een adembenemende auto gespot? Upload je foto's eenvoudig via onze 'Voeg Toe' pagina.</p>
+                        <a href="/voegtoe" class="learn-more-btn">Naar pagina</a>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Info: Over Ons</h4>
+                        <p>Meer weten over de visie achter RoadRecord? Op de Info-pagina lees je alles over onze missie.</p>
+                        <a href="/info" class="learn-more-btn">Naar pagina</a>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Contact & Support</h4>
+                        <p>Vragen, feedback of zin om te kletsen? Via de Contact-pagina kun je contact met ons opnemen.</p>
+                        <a href="/contact" class="learn-more-btn">Naar pagina</a>
+                    </div>
+                </div>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-gallery-section content-section">
+        <div class="container">
+            <h3>Bewonder de Passie</h3>
+            <div class="gallery-grid">
+                <img src="{{ url_for('static', filename='images/ferrari.png') }}" alt="Strakke rode sportwagen" loading="lazy">
+                <img src="{{ url_for('static', filename='images/f&f.jpg') }}" alt="Klassieke muscle car" loading="lazy">
+                <img src="{{ url_for('static', filename='images/redbull.jpg') }}" alt="Luxe hypercar" loading="lazy">
+                <img src="{{ url_for('static', filename='images/conceptauto.jpg') }}" alt="Futuristische conceptauto" loading="lazy">
+                <img src="{{ url_for('static', filename='images/offroad.jpg') }}" alt="Krachtige off-road supercar" loading="lazy">
+                <img src="{{ url_for('static', filename='images/sportwagen.jpg') }}" alt="Elegante sportwagen op de weg" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    {# JavaScript specifiek voor deze pagina #}
+    {% block extra_js %}
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {% endblock %}
+{% endblock %}

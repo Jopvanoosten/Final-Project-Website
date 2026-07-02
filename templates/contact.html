@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | RoadRecord{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="car-section">
+            <div class="image-background">
+                <img src="{{ url_for('static', filename='images/achtergrondcontactpage.jpg') }}" alt="Achtergrondafbeelding contactpagina">
+            </div>
+
+            <div class="contact-content">
+                <div class="text-box">
+                    <h2>Contact</h2>
+                </div>
+                <div class="contact-container">
+                    <form class="contact-form">
+                        <label for="naam">Naam</label>
+                        <input type="text" id="naam" name="naam" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="categorie">Categorie probleem</label>
+                        <input type="text" id="categorie" name="categorie">
+
+                        <label for="bericht">Bericht</label>
+                        <textarea id="bericht" name="bericht" rows="4"></textarea>
+
+                        <button type="submit">Versturen</button>
+                    </form>
+
+                    <div class="contact-info">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Jouw Bedrijfslogo">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src='https://cdn.jotfor.ms/agent/embedjs/01970bf41cc77ba5bf4f2795db09e9c79ca7/embed.js?skipWelcome=1&maximizable=1'>
+        </script>
+    </main>
+    <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+{% endblock %}

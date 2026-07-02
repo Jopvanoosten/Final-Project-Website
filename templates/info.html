@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Over Ons | RoadRecord{% endblock %}
+
+{% block extra_css %}
+    {# Specifieke stylesheet voor de infopage #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="hero-section">
+            <div class="image-background">
+                <img src="{{ url_for('static', filename='images/achtergrondinfopage.jpg') }}" alt="Achtergrondafbeelding Over Ons pagina RoadRecord">
+            </div>
+
+            <div class="hero-content">
+                <div class="text-box">
+                    <h2>Wie zijn wij</h2>
+                </div>
+            </div>
+        </div>
+
+        {# Team Members Section - Nu met twee persoonlijke sliders #}
+        <section class="team-members-section content-section">
+            <div class="container">
+                <h3>Ons Team</h3>
+                <div class="feature-grid">
+                    {# Eerste Persoon met Slider #}
+                    <div class="feature-item">
+                        <div class="member-image-slider-wrapper"> {# Wrapper voor de slider van de persoon #}
+                            <div class="feature-slider" id="person1-slider"> {# Unieke ID voor de slider #}
+                                <button class="prev">&#10094;</button>
+                                <div class="feature-items-wrapper personal-slider-items">
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/jop/jop1.jpg') }}" alt="Jouw foto 1">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/jop/jop2.jpg') }}" alt="Jouw foto 2">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/jop/jop3.jpg') }}" alt="Jouw foto 3">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/jop/jop4.jpg') }}" alt="Jouw foto 4">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/jop/jop5.jpg') }}" alt="Jouw foto 5">
+                                    </div>
+                                </div>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                        <h4>Jop</h4>
+                        <ul class="team-info-list">
+                            <li>17 jaar</li>
+                            <li>Informatica</li>
+                            <li>CLD</li>
+                            <li>Quote: "If you no longer go for a gap that exists, you are no longer a racing driver"</li>
+                        </ul>
+                    </div>
+
+                    {# Tweede Persoon met Slider #}
+                    <div class="feature-item">
+                        <div class="member-image-slider-wrapper"> {# Wrapper voor de slider van de persoon #}
+                            <div class="feature-slider" id="person2-slider"> {# Unieke ID voor de slider #}
+                                <button class="prev">&#10094;</button>
+                                <div class="feature-items-wrapper personal-slider-items">
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/mathias/mathias1.jpg') }}" alt="Foto andere persoon 1">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/mathias/mathias2.jpg') }}" alt="Foto andere persoon 2">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/mathias/mathias3.jpg') }}" alt="Foto andere persoon 3">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/mathias/mathias4.jpg') }}" alt="Foto andere persoon 4">
+                                    </div>
+                                    <div class="feature-slide-img">
+                                        <img src="{{ url_for('static', filename='images/mathias/mathias5.jpg') }}" alt="Foto andere persoon 5">
+                                    </div>
+                                </div>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                        <h4>Mathias</h4>
+                        <ul class="team-info-list">
+                            <li>16 jaar</li>
+                            <li>Informatica</li>
+                            <li>CLD</li>
+                            <li>Quote: "Yesterday is history, tomorrow is a mystery, but today is a gift, that is why it is called the present"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-info-section content-section">
+            <div class="container">
+                <h3>Over het Project RoadRecord</h3>
+                <p>RoadRecord is ontstaan uit een gedeelde passie voor unieke en bijzondere voertuigen. Ons doel is om een dynamisch platform te bieden waar autoliefhebbers hun gespotte auto's kunnen delen en bewonderen.</p>
+                <p>We streven ernaar om de meest complete en gebruiksvriendelijke database van gespotte auto's te bouwen. Samen creëren we een unieke collectie van automotive schoonheid.</p>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/info.js') }}"></script>
+{% endblock %}

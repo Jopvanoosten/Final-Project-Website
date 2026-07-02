@@ -1,0 +1,500 @@
+/* Algemene reset en body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    color: white; /* Deze wordt overschreven in de content-sections */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5% 3%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* Verbeteringen voor header elementen */
+header div strong { /* Naam van de website 'RoadRecord' */
+    font-size: 2.8vw; /* Relatief aan de viewport breedte */
+    font-weight: bold;
+    letter-spacing: 0.05em; /* Relatief aan de font-size van het element */
+}
+
+nav ul { /* Zorg dat de nav-items naast elkaar staan en stijlen krijgen */
+    list-style: none;
+    display: flex;
+    gap: 1.5em; /* Relatief aan de font-size van het parent element */
+}
+
+nav a { /* Pagina namen */
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em; /* Relatief aan de font-size van het element */
+    border: 0.1rem solid transparent; /* Gebruik rem voor consistente kleine lijnen */
+    font-size: 1.3em; /* Relatief aan de font-size van het parent element */
+    transition: all 0.3s ease; /* Soepelere overgang voor hover effect */
+}
+
+nav a:hover,
+nav a.active {
+    border: 0.1rem solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.3rem;
+}
+
+/* Main content gebied */
+main {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+/* Car Section (Hero Section) */
+.car-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Minimaal de volledige viewport hoogte */
+    position: relative;
+    gap: 5.56vw;
+    color: white;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.car-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Breedte is percentage van de ouder */
+    max-width: 120rem; /* Gebruik rem voor max-breedte van container */
+    gap: 8.33vw;
+    position: relative;
+    z-index: 1;
+}
+
+.text-box {
+    color: white;
+    font-size: 4vw; /* Font-size relatief aan viewport breedte */
+    margin-top: -30vh; /* Relatief aan viewport hoogte, kan aangepast worden */
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.7); /* Kleine, vaste schaduw */
+}
+
+/* Read More balk aanpassing */
+.read-more {
+    text-align: center;
+    padding: 2.5vh 0; /* padding relatief aan viewport hoogte */
+    background-color: rgba(51, 51, 51, 0.7);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.read-more p, .read-more .arrow {
+    color: white;
+    margin: 0;
+}
+
+.arrow {
+    font-size: 2em; /* Relatief aan de font-size van de ouder */
+    margin-top: 0.5rem; /* Relatief aan de root font-size */
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-1rem); /* Relatief aan de root font-size */
+    }
+    60% {
+        transform: translateY(-0.5rem); /* Relatief aan de root font-size */
+    }
+}
+
+/* Audio Controls Styling */
+.audio-controls {
+    position: fixed;
+    bottom: 1.5rem; /* Net iets kleiner maken door rem waarden te verlagen */
+    right: 1.5rem; /* Net iets kleiner maken door rem waarden te verlagen */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Kleinere ruimte tussen elementen */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1.2rem; /* Kleinere padding */
+    border-radius: 0.5rem;
+}
+
+.audio-controls button {
+    padding: 0.8rem; /* Kleinere padding voor knop */
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 0.9rem; /* Kleinere tekst op de knop */
+}
+
+.audio-controls button:hover {
+    background-color: #555;
+}
+
+.audio-controls input[type="range"] {
+    -webkit-appearance: none;
+    width: 10rem; /* Kleinere breedte van de slider */
+    height: 0.7rem; /* Kleinere hoogte van de slider */
+    background: #555;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 0.5rem;
+}
+
+.audio-controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+.audio-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.8rem; /* Kleinere thumb */
+    height: 1.8rem; /* Kleinere thumb */
+    background: #333;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.audio-controls input[type="range"]::-moz-range-thumb {
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* NIEUWE SECTIES STYLING & Ruimte toevoegen */
+/* Algemene styling voor alle content-secties */
+.content-section {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 8vh 0; /* Padding relatief aan viewport hoogte */
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.content-section:last-of-type {
+    border-bottom: none;
+}
+
+.content-section .container {
+    /* Max-breedte aanpassen voor de tekstgedeelten */
+    max-width: 80rem; /* Verlaagd van 120rem naar 80rem */
+    margin: 0 auto;
+    padding: 0 2vw; /* Horizontale padding relatief aan viewport breedte */
+}
+
+/* Specifieke aanpassing voor de 'Ontdek de Wereld van Auto Spotten' sectie */
+.about-section .container {
+    max-width: 80rem; /* Zorg ervoor dat deze ook de smallere breedte heeft */
+}
+
+/* Specifieke aanpassing voor de 'Wat Biedt RoadRecord?' sectie */
+.features-section .container {
+    max-width: 80rem; /* Zorg ervoor dat deze ook de smallere breedte heeft */
+}
+
+
+.content-section h3 {
+    font-size: 2.8vw; /* Font-size relatief aan viewport breedte */
+    margin-bottom: 5vh; /* Ruimte relatief aan viewport hoogte */
+    color: #333;
+}
+
+.about-section {
+    padding-bottom: 5vh;
+}
+
+.about-section p {
+    font-size: 1.2rem; /* Relatief aan de root font-size */
+    line-height: 1.8;
+    max-width: 40rem; /* VERLAAG DEZE WAARDE om de tekst smaller te maken */
+    margin: 0 auto 3vh auto; /* Verticale marge relatief aan viewport hoogte */
+}
+
+.about-section strong {
+    color: #007bff;
+}
+
+/* Feature Grid Styling (uit 'Wat Biedt RoadRecord?' sectie) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* rem voor minimale breedte */
+    gap: 4vw; /* Ruimte relatief aan viewport breedte */
+    margin-top: 4vh; /* Ruimte relatief aan viewport hoogte */
+    text-align: left;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 3rem; /* Relatief aan de root font-size */
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.1); /* Gebruik rem voor schaduw */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.18);
+}
+
+.feature-item h4 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Image Gallery Styling (uit 'Bewonder de Passie' sectie) */
+.image-gallery-section {
+    padding-top: 5vh;
+    padding-bottom: 8vh;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2.5vw; /* Ruimte relatief aan viewport breedte */
+    margin-top: 4vh; /* Ruimte relatief aan viewport hoogte */
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0.8rem;
+    background: #eee;
+    height: 25vh; /* Hoogte relatief aan viewport hoogte */
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.08);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0.8rem 2.5rem rgba(0,0,0,0.18);
+    z-index: 2;
+}
+
+/* Slider specifieke stijlen */
+.feature-slider {
+    position: relative;
+    width: 100%;
+    /* max-width is nu gecontroleerd door de .container */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.feature-slider .feature-items-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.feature-item {
+    flex: 0 0 33.3333%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 1.5rem rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item h4 {
+    margin: 1rem 0 0.8rem;
+    color: #333;
+}
+
+.feature-item p {
+    color: #555;
+    flex-grow: 1;
+}
+
+.learn-more-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #707070;
+}
+
+/* Navigatieknoppen */
+.feature-slider button.prev,
+.feature-slider button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+}
+
+.feature-slider button.prev {
+    left: 1rem;
+}
+
+.feature-slider button.next {
+    right: 1rem;
+}
+
+/* Responsive: minder slides op small screens */
+@media (max-width: 900px) {
+    .feature-item {
+        flex: 0 0 50%;
+    }
+    header div strong {
+        font-size: 3.5vw; /* Pas aan voor kleinere schermen */
+    }
+    nav a {
+        font-size: 1.2em;
+    }
+    .content-section .container {
+        max-width: 90vw; /* Iets breder op tablets */
+    }
+    .about-section p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .feature-item {
+        flex: 0 0 100%;
+    }
+    header div strong {
+        font-size: 4.5vw; /* Nog iets groter op zeer kleine schermen zodat het leesbaar blijft */
+    }
+    nav a {
+        font-size: 1em; /* Nog iets kleiner op mobiel */
+        padding: 0.4em 0.7em;
+    }
+    .text-box {
+        font-size: 6vw; /* Tekst op hero kleiner maken op mobiel */
+        margin-top: -20vh;
+    }
+    .content-section h3 {
+        font-size: 7vw; /* Groter op mobiel om goed op te vallen */
+    }
+    .about-section p {
+        font-size: 1rem;
+    }
+    .feature-item h4 {
+        font-size: 1.4rem;
+    }
+    .feature-item p {
+        font-size: 0.9rem;
+    }
+    .gallery-grid img {
+        height: 20vh; /* Iets kleiner op mobiel */
+    }
+    .audio-controls {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.6rem 0.8rem; /* Nog kleinere padding */
+        gap: 0.5rem; /* Nog kleinere ruimte */
+    }
+    .audio-controls input[type="range"] {
+        width: 6rem; /* Nog kleinere slider */
+    }
+    .audio-controls button {
+        padding: 0.6rem; /* Nog kleinere knop padding */
+        font-size: 0.8rem; /* Kleinere tekst op de knop */
+    }
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 2%; /* Percentage is prima voor de footer padding */
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}

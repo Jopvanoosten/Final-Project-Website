@@ -1,0 +1,518 @@
+/* Algemene reset en body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    color: white; /* Deze wordt overschreven in de content-sections */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5% 3%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* Verbeteringen voor header elementen */
+header div strong { /* Naam van de website 'RoadRecord' */
+    font-size: 2.8vw; /* Relatief aan de viewport breedte */
+    font-weight: bold;
+    letter-spacing: 0.05em; /* Relatief aan de font-size van het element */
+}
+
+nav ul { /* Zorg dat de nav-items naast elkaar staan en stijlen krijgen */
+    list-style: none;
+    display: flex;
+    gap: 1.5em; /* Relatief aan de font-size van het parent element */
+}
+
+nav a { /* Pagina namen */
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em; /* Relatief aan de font-size van het element */
+    border: 0.1rem solid transparent; /* Gebruik rem voor consistente kleine lijnen */
+    font-size: 1.3em; /* Relatief aan de font-size van het parent element */
+    transition: all 0.3s ease; /* Soepelere overgang voor hover effect */
+}
+
+nav a:hover,
+nav a.active {
+    border: 0.1rem solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.3rem;
+}
+
+/* Main content gebied */
+main {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+/* Achtergrondafbeelding Styling (voor hero-section) */
+.image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Valback kleur voor als afbeelding niet laadt */
+}
+
+.image-background img {
+    min-width: 100%; /* Zorgt ervoor dat de afbeelding de hele breedte vult */
+    min-height: 100%; /* Zorgt ervoor dat de afbeelding de hele hoogte vult */
+    width: 114%; /* Kleine overscan om randen te voorkomen */
+    height: 114%; /* Kleine overscan om randen te voorkomen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Vult de container, snijdt bij indien nodig */
+    filter: brightness(60%); /* Maakt achtergrond donkerder */
+}
+
+/* Hero Section (voor de 'Wie zijn wij?' titel) */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Volledige viewport hoogte */
+    position: relative;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Content in de Hero sectie */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Breedte is percentage van de ouder */
+    max-width: 120rem; /* Gebruik rem voor max-breedte van container */
+    position: relative;
+    z-index: 1;
+    padding-top: 0;
+}
+
+.text-box {
+    color: white;
+    font-size: 5vw; /* Font-size relatief aan viewport breedte */
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.7); /* Kleine, vaste schaduw */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Audio Controls Styling */
+.audio-controls {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.audio-controls button {
+    padding: 0.8rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.audio-controls button:hover {
+    background-color: #555;
+}
+
+.audio-controls input[type="range"] {
+    -webkit-appearance: none;
+    width: 10rem;
+    height: 0.7rem;
+    background: #555;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 0.5rem;
+}
+
+.audio-controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+.audio-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #333;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.audio-controls input[type="range"]::-moz-range-thumb {
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* --- Algemene styling voor content-secties --- */
+.content-section {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 6vh 0;
+    text-align: center;
+    border-bottom: 0.1rem solid #eee;
+    position: relative;
+    z-index: 5;
+}
+
+.content-section:last-of-type {
+    border-bottom: none;
+}
+
+.content-section .container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2vw;
+}
+
+.content-section h3 {
+    font-size: 2.8vw;
+    margin-bottom: 3vh;
+    color: #333;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* --- Specifieke styling voor 'Ons Team' sectie --- */
+.team-members-section .container {
+    max-width: 80rem; /* Smallere breedte voor deze sectie */
+}
+
+.team-members-section h3 {
+    font-size: 2.8vw;
+    margin-bottom: 5vh;
+}
+
+/* Feature Grid Styling (voor teamleden) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    margin-top: 3vh;
+    text-align: left;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Zodat de slider en tekst mooi onder elkaar staan */
+    flex-direction: column;
+}
+
+.feature-item:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+.feature-item h4 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 1rem; /* Ruimte boven de naam */
+    margin-bottom: 1rem;
+    text-align: center; /* Naam centreren */
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: left; /* Tekst weer links uitlijnen */
+}
+
+/* Nieuwe wrapper voor de persoonlijke sliders */
+.member-image-slider-wrapper {
+    width: 100%;
+    height: 25vh; /* Vaste hoogte voor de persoonlijke sliders */
+    margin-bottom: 2vh;
+    overflow: hidden; /* Zorgt dat de afbeeldingen binnen de wrapper blijven */
+    border-radius: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    position: relative; /* Voor de absolute positie van de slider knoppen */
+}
+
+/* Specifieke styling voor de afbeeldingen binnen de persoonlijke sliders */
+.member-image-slider-wrapper .feature-slider .feature-items-wrapper {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    width: 100%;
+    overflow: hidden;
+}
+
+.member-image-slider-wrapper .feature-slide-img {
+    width: 100%;
+    flex: 0 0 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-image-slider-wrapper .feature-slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Vult de container, snijdt bij indien nodig */
+    border-radius: 0.8rem; /* Consistent met de wrapper */
+    transition: transform 0.3s ease;
+}
+
+/* --- Algemene Slider stijlen (voor de "Wat Biedt RoadRecord?" sectie) --- */
+/* Deze regels zijn verwijderd, omdat de sectie is weggehaald.
+   Als je hier een algemene slider-styling had die ook voor persoonlijke sliders van toepassing was,
+   dan had je die moeten hergebruiken. Nu is alleen de styling voor persoonlijke sliders over. */
+
+
+/* Navigatieknoppen voor alle sliders */
+.feature-slider button.prev,
+.feature-slider button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.feature-slider button.prev:hover,
+.feature-slider button.next:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.feature-slider button.prev {
+    left: 1rem;
+}
+
+.feature-slider button.next {
+    right: 1rem;
+}
+
+
+/* Project Info Section */
+.project-info-section {
+    background-color: white;
+    color: #333;
+    padding: 8vh 0;
+}
+
+.project-info-section h3 {
+    color: #333;
+}
+
+/* Footer (Consistent met alle pagina's) */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 2% 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+}
+
+/* --- Media Queries voor Responsiviteit --- */
+@media (max-width: 900px) {
+    header div strong {
+        font-size: 3.5vw;
+    }
+    nav a {
+        font-size: 1.2em;
+    }
+    .hero-content {
+        max-width: 95vw;
+    }
+    .text-box {
+        font-size: 6vw;
+    }
+    .content-section h3 {
+        font-size: 5vw;
+    }
+    /* Geen aanpassingen meer voor de algemene slider hier */
+    .content-section .container {
+        max-width: 90vw; /* Iets breder op tablets */
+    }
+    .feature-item p { /* Algemeen voor alle feature-items */
+        font-size: 1.05rem;
+    }
+    .member-image-slider-wrapper {
+        height: 20vh; /* Iets kleiner op tablets */
+    }
+    .project-info-section {
+        padding: 6vh 0;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Header aanpassingen */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3% 5%;
+    }
+    header div strong {
+        font-size: 5vw;
+        margin-bottom: 1rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.8em;
+    }
+    nav a {
+        font-size: 1em;
+        padding: 0.4em 0.7em;
+    }
+
+    /* Hero sectie aanpassingen */
+    .text-box {
+        font-size: 8vw;
+    }
+    .hero-content {
+        width: 95%;
+    }
+
+    /* Audio controls aanpassingen */
+    .audio-controls {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.6rem 0.8rem;
+        gap: 0.5rem;
+    }
+    .audio-controls input[type="range"] {
+        width: 6rem;
+        height: 0.6rem;
+    }
+    .audio-controls button {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    .audio-controls input[type="range"]::-webkit-slider-thumb,
+    .audio-controls input[type="range"]::-moz-range-thumb {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Content sectie aanpassingen */
+    .content-section {
+        padding: 4vh 0;
+    }
+    .content-section .container {
+        padding: 0 4vw;
+    }
+    .content-section h3 {
+        font-size: 7vw;
+        margin-bottom: 2.5vh;
+    }
+    /* Algemene feature-grid (voor teamleden) op mobiel */
+    .feature-grid {
+        grid-template-columns: 1fr; /* Stapel de items onder elkaar op mobiel */
+        gap: 1.5rem;
+    }
+    /* Geen aanpassing meer voor de algemene slider hier */
+    /* Algemeen voor alle feature-items */
+    .feature-item {
+        padding: 2rem;
+    }
+    .feature-item h4 {
+        font-size: 1.6rem;
+    }
+    .feature-item p {
+        font-size: 0.95rem;
+    }
+    .member-image-slider-wrapper {
+        height: 18vh; /* Nog kleiner op mobiel */
+    }
+    .project-info-section {
+        padding: 5vh 0;
+    }
+}
+
+/* Styling voor team-info lijsten */
+.team-info-list {
+    list-style: disc inside;
+    margin: 1.2rem 0 0 0;
+    padding: 0 0 0 1.2rem;
+    color: #555;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.team-info-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Specifieke aanpassing voor slider afbeeldingen op de over ons pagina */
+.feature-slide-img img,
+.personal-slider-items img,
+.slider-img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0.8rem;
+    background: #eee;
+}

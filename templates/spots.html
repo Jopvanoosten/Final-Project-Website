@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Spots | RoadRecord{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/spots.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="hero-section">
+            <div class="image-background">
+                <img src="{{ url_for('static', filename='images/achtergrondspotspage.jpg') }}" alt="Achtergrondafbeelding spots pagina">
+            </div>
+            <div class="hero-content">
+                <div class="text-box">
+                    <h2>Ontdek de Spots</h2>
+                </div>
+            </div>
+        </div>
+
+        <section class="spots-section">
+            <div class="spot-grid-header">
+                <h2>Laatst toegevoegde spots</h2>
+            </div>
+            
+            <div class="main-spot-display">
+                <div class="main-photo">
+                    {# Deze div wordt dynamisch gevuld door JavaScript #}
+                </div>
+                <div class="spot-details">
+                    {# Deze div wordt dynamisch gevuld door JavaScript #}
+                </div>
+            </div>
+
+            <div class="grid-header">
+                <h3>Ontdek meer spots</h3>
+            </div>
+            <div class="grid">
+                {# Deze div wordt dynamisch gevuld door JavaScript #}
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/spots.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,411 @@
+/* Algemene basisinstellingen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw; /* Consistent met andere CSS */
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Header (Consistent met alle pagina's) */
+header {
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5% 3%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* Verbeteringen voor header elementen (website naam - Consistent) */
+header div strong {
+    font-size: 2.8vw;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em;
+    border: 0.1rem solid transparent;
+    font-size: 1.3em;
+    transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    border: 0.1rem solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.3rem;
+}
+
+main {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw; /* Consistent met andere CSS */
+}
+
+.car-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    gap: 5.56vw;
+    color: white;
+    overflow: hidden;
+}
+
+/* Achtergrondafbeelding Styling binnen de car-section */
+.image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.image-background img {
+    /* Houd deze waarden zoals ze zijn, omdat ze waarschijnlijk bedoeld zijn om de afbeelding uit te rekken */
+    min-width: 100%;
+    min-height: 100%;
+    width: 114%;
+    height: 114%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.7);
+    filter: brightness(60%);
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 120rem; /* Van 1200px naar 120rem */
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 12vh; /* Consistent met vorige aanpassing */
+    margin-bottom: 5vh; /* Consistent met vorige aanpassing */
+}
+
+.contact-content h2 {
+    font-size: 5vw; /* Consistent met vorige aanpassing */
+    margin-bottom: 3vh; /* Consistent met vorige aanpassing */
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.7); /* Consistent met vorige aanpassing */
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%; /* Behoud percentage */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3rem; /* Consistent met vorige aanpassing */
+    border-radius: 0.8rem; /* Consistent met vorige aanpassing */
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.3); /* Consistent met vorige aanpassing */
+}
+
+.contact-form {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em; /* Behoud em */
+    color: white;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 1.1em; /* Behoud em */
+    margin-bottom: 0.5rem; /* Consistent met vorige aanpassing */
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8em; /* Behoud em */
+    border: 0.1rem solid #999; /* Consistent met vorige aanpassing */
+    border-radius: 0.5rem; /* Consistent met vorige aanpassing */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.contact-form button {
+    padding: 0.8em 1.5em; /* Behoud em */
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    align-self: flex-start;
+    border-radius: 0.5rem; /* Consistent met vorige aanpassing */
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    flex: 1 1 45%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contact-info p {
+    font-size: 1.2em; /* Behoud em */
+    line-height: 1.6;
+}
+
+/* Audio Controls Styling (Consistent met alle pagina's) */
+.audio-controls {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.audio-controls button {
+    padding: 0.8rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.audio-controls button:hover {
+    background-color: #555;
+}
+
+.audio-controls input[type="range"] {
+    -webkit-appearance: none;
+    width: 10rem;
+    height: 0.7rem;
+    background: #555;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 0.5rem;
+}
+
+.audio-controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+.audio-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #333;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.audio-controls input[type="range"]::-moz-range-thumb {
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Footer (Consistent met alle pagina's) */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 2% 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    width: 100vw; /* Consistent met body en main */
+}
+
+/* Succesmelding Styling (Toegevoegd voor floating succesmelding) */
+.form-success-message-floating {
+    position: fixed;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2ecc40;
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.18);
+    font-size: 1.3rem;
+    font-weight: bold;
+    z-index: 99999;
+    text-align: center;
+    opacity: 0.97;
+    transition: opacity 0.3s;
+}
+
+@media (max-width: 600px) {
+    .form-success-message-floating {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+        top: 1.2rem;
+    }
+}
+
+/* Responsive (geüpdatet naar rem/em/vw/vh en consistentie) */
+@media (max-width: 900px) { /* Gebruik vw voor media queries */
+    header div strong {
+        font-size: 3.5vw;
+    }
+    nav a {
+        font-size: 1.2em;
+    }
+    .contact-content {
+        margin-top: 8vh; /* Iets minder top marge op tablets */
+        margin-bottom: 4vh;
+    }
+    .contact-content h2 {
+        font-size: 6vw; /* Iets groter op tablets */
+        margin-bottom: 2.5vh;
+    }
+    .contact-container {
+        padding: 2.5rem; /* Iets minder padding */
+    }
+    .contact-form label {
+        font-size: 1em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9em;
+    }
+    .logo-box {
+        height: 20vh; /* Iets kleiner op tablets */
+    }
+    .contact-info p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 600px) { /* Gebruik vw voor media queries */
+    /* Header aanpassingen */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3% 5%;
+    }
+    header div strong {
+        font-size: 5vw;
+        margin-bottom: 1rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.8em;
+    }
+    nav a {
+        font-size: 1em;
+        padding: 0.4em 0.7em;
+    }
+
+    /* Hero sectie en algemene content aanpassingen */
+    .contact-content {
+        width: 95%; /* Iets meer ruimte */
+        margin-top: 6vh; /* Nog minder top marge op mobiel */
+        margin-bottom: 3vh;
+    }
+    .contact-content h2 {
+        font-size: 9vw; /* Nog groter op mobiel om goed op te vallen */
+        margin-bottom: 2vh;
+    }
+    .contact-container {
+        flex-direction: column; /* Formulieren en info onder elkaar */
+        align-items: center;
+        padding: 2rem; /* Nog minder padding */
+        gap: 1.5rem; /* Kleinere gap */
+    }
+    .contact-form,
+    .contact-info {
+        flex: 1 1 100%; /* Nemen de volle breedte */
+        width: 100%;
+    }
+    .contact-form label {
+        font-size: 0.9em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.85em;
+        padding: 0.7em;
+    }
+    .contact-form button {
+        width: 100%; /* Knop vult de breedte op mobiel */
+        margin-top: 1.5rem;
+    }
+    .logo-box {
+        height: 15vh; /* Nog kleiner op mobiel */
+    }
+    .contact-info p {
+        font-size: 1em;
+    }
+
+    /* Audio controls aanpassingen (Consistent met alle pagina's) */
+    .audio-controls {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.6rem 0.8rem;
+        gap: 0.5rem;
+    }
+    .audio-controls input[type="range"] {
+        width: 6rem;
+        height: 0.6rem;
+    }
+    .audio-controls button {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    .audio-controls input[type="range"]::-webkit-slider-thumb,
+    .audio-controls input[type="range"]::-moz-range-thumb {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}

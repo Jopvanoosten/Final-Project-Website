@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}RoadRecord{% endblock %}</title>
+    
+    {# Dit blok is voor pagina-specifieke stylesheets #}
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+    
+    <!-- Muziekspeler en controls, nu centraal geregeld -->
+    <audio autoplay loop muted playsinline id="background-music">
+        <source src="{{ url_for('static', filename='music/music.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="audio-controls">
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1">
+        <button id="muteToggle">Unmute Music</button>
+    </div>
+    <!-- einde muziekspeler -->
+
+    <header>
+        <div><strong>RoadRecord</strong></div>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/spots'>Spots</a>
+            <a href='/voegtoe'>Toevoegen</a>
+            <a href='/info'>Over ons</a>
+            <a href='/contact'>Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {# Hier komt de specifieke inhoud van elke pagina #}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RoadRecord</p>
+    </footer>
+    
+    {# Dit blok is voor pagina-specifieke JavaScript (aan het einde van de body voor betere prestaties) #}
+    {% block extra_js %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/music-global.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Voeg toe | RoadRecord{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/voegtoe.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="car-section">
+            <div class="image-background">
+                <img src="{{ url_for('static', filename='images/achtergrondvoegtoepage.jpg') }}" alt="Achtergrondafbeelding voeg toe pagina">
+            </div>
+            <div class="add-content-wrapper">
+                <div class="add-content">
+                    <div class="text-box">
+                        <h2>Voeg je Spot toe</h2>
+                    </div>
+                    <div class="add-container">
+                        <form id="spot-form" enctype="multipart/form-data"> {# BELANGRIJK: enctype toevoegen voor file uploads! #}
+                            <div class="photo-input">
+                                <label for="afbeelding">Afbeelding uploaden:</label>
+                                <input type="file" id="afbeelding" name="afbeelding" accept="image/*" required /> {# type="file" met accept #}
+                                <label for="fotograaf">Fotograaf:</label>
+                                <input type="text" id="fotograaf" name="fotograaf" placeholder="Naam fotograaf" required /> {# name attribuut toevoegen #}
+                            </div>
+                            <div class="info">
+                                <label for="merk">Merk/Naam auto:</label> {# Aangepast label #}
+                                <input type="text" id="merk" name="merk" placeholder="Merk of Naam van de auto" required /> {# name attribuut is nu "merk" en is required #}
+                                <label for="locatie">Locatie:</label>
+                                <input type="text" id="locatie" name="locatie" placeholder="Locatie van de spot" /> {# name attribuut toevoegen #}
+                                <label for="datum">Datum:</label>
+                                <input type="date" id="datum" name="datum" /> {# name attribuut toevoegen #}
+                            </div>
+
+                            <button type="submit">Uploaden</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/voegtoe.js') }}"></script>
+{% endblock %}
